@@ -1,0 +1,22 @@
+<form [formGroup]="form" 
+        (ngSubmit)="onSubmit(form.value)">
+<div>
+    <label>First Name: </label>
+            <input type="text" formControlName="fName">
+    <label>Last Name: </label>
+            <input type="text" formControlName="lName">
+</div>
+<div>
+    <label>Street: </label>
+            <input type="text" formControlName="street">
+    <label>Apt: </label>
+            <input type="number" formControlName="apt">>
+    <label>City: </label>
+            <input type="text" formControlName="city">
+    <label>State: </label>
+            <input type="text" formControlName="state">
+    <label>Zip: </label>
+            <input type="number" formControlName="zip">
+</div>
+        <button type="submit">Save</button>
+</form>
