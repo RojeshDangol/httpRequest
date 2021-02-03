@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
-
-
+import { DataService } from '../data.service';
+ 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -11,12 +11,12 @@ export class ListComponent implements OnInit {
 
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private d: DataService) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      fName: this.fb.control(''),
-      lName: this.fb.control(''),
+      first: this.fb.control(''),
+      last: this.fb.control(''),
       street: this.fb.control(''),
       apt: this.fb.control(''),
       city: this.fb.control(''),
@@ -26,7 +26,8 @@ export class ListComponent implements OnInit {
   }
 
   onSubmit(newData: any){
-    console.log(newData);
+    console.log(newData)
+    this.d.updateData(2, newData);
   }
   
 
